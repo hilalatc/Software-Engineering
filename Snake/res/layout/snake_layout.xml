@@ -16,115 +16,115 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" 
-    android:layout_height="match_parent" 
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-	<LinearLayout android:layout_width="match_parent" 
-        android:layout_height="wrap_content" 
-        android:orientation="horizontal"
-        android:layout_weight="0">
-        
-    	<TextView android:id="@+id/textscore"
-			android:text=""
-			android:visibility="visible"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="left"
-			android:textColor="#ffffffff"
-			android:background="#008"
-			android:textSize="16sp"
-			android:layout_weight="1"/>
-    	<TextView android:id="@+id/textrecord"
-			android:text=""
-			android:visibility="visible"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="right"
-			android:textColor="#ffffffff"
-			android:background="#008"
-			android:textSize="16sp"
-			android:layout_weight="1"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_weight="0">
 
-	</LinearLayout>
+        <TextView android:id="@+id/textscore"
+                  android:text=""
+                  android:visibility="visible"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="left"
+                  android:textColor="#ffffffff"
+                  android:background="#008"
+                  android:textSize="16sp"
+                  android:layout_weight="1"/>
+        <TextView android:id="@+id/textrecord"
+                  android:text=""
+                  android:visibility="visible"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="right"
+                  android:textColor="#ffffffff"
+                  android:background="#008"
+                  android:textSize="16sp"
+                  android:layout_weight="1"/>
+
+    </LinearLayout>
 
     <FrameLayout android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:layout_weight="1">
-	
-	    <com.fgrim.msnake.SnakeView android:id="@+id/snake"
-		    android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tileSize="24"/>
-	
-		<RelativeLayout android:layout_width="match_parent"
-			android:layout_height="match_parent">
-		
-			<TextView android:id="@+id/text"
-				android:text="@string/snake_layout_text_text"
-				android:visibility="visible"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:layout_centerInParent="true"
-				android:gravity="center"
-				android:textColor="#ffaaaaff"
-				android:background="#AA000000"
-				android:textSize="24sp"/>
-				
-		</RelativeLayout>
+                 android:layout_height="match_parent"
+                 android:layout_weight="1">
 
-	</FrameLayout>
+        <com.example.Snake.SnakeView android:id="@+id/snake"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent"
+                                     tileSize="24"/>
 
-	<LinearLayout android:layout_width="match_parent" 
-        android:layout_height="wrap_content" 
-        android:orientation="horizontal"
-        android:layout_weight="0">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-	    <Button android:id="@+id/button0"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/bTIzquierda"
-            android:onClick="bIzquierda"
-            android:drawableTop="@drawable/arrow_turnleft"
-            android:visibility="gone"
-            android:layout_weight="1"/>
-	    <Button android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/bIzquierda"
-            android:onClick="bIzquierda"
-            android:drawableTop="@drawable/arrow_left"
-            android:layout_weight="1"/>
-	    <Button android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/bArriba"
-            android:onClick="bArriba"
-            android:drawableTop="@drawable/arrow_up"
-            android:layout_weight="1"/>
-	    <Button android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/bAbajo"
-            android:onClick="bAbajo"
-            android:drawableTop="@drawable/arrow_down"
-            android:layout_weight="1"/>
-	    <Button android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/bDerecha"
-            android:onClick="bDerecha"
-            android:drawableTop="@drawable/arrow_right"
-            android:layout_weight="1"/>
-	    <Button android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/bTDerecha"
-            android:onClick="bDerecha"
-            android:drawableTop="@drawable/arrow_turnright"
-            android:visibility="gone"
-            android:layout_weight="1"/>
+            <TextView android:id="@+id/text"
+                      android:text="@string/snake_layout_text_text"
+                      android:visibility="visible"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_centerInParent="true"
+                      android:gravity="center"
+                      android:textColor="#ffaaaaff"
+                      android:background="#AA000000"
+                      android:textSize="24sp"/>
 
-	</LinearLayout>
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_weight="0">
+
+        <Button android:id="@+id/button0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bTIzquierda"
+                android:onClick="bIzquierda"
+                android:drawableTop="@drawable/arrow_turnleft"
+                android:visibility="gone"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bIzquierda"
+                android:onClick="bIzquierda"
+                android:drawableTop="@drawable/arrow_left"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bArriba"
+                android:onClick="bArriba"
+                android:drawableTop="@drawable/arrow_up"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bAbajo"
+                android:onClick="bAbajo"
+                android:drawableTop="@drawable/arrow_down"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bDerecha"
+                android:onClick="bDerecha"
+                android:drawableTop="@drawable/arrow_right"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bTDerecha"
+                android:onClick="bDerecha"
+                android:drawableTop="@drawable/arrow_turnright"
+                android:visibility="gone"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -15,14 +15,14 @@
 -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<!--     <item android:id="@+id/menu_walls"
-          android:title="@string/menu_walls" />
-    <item android:id="@+id/menu_zoom"
-          android:title="@string/menu_zoom" />
-    <item android:id="@+id/menu_speed"
-          android:title="@string/menu_speed" />
-    <item android:id="@+id/menu_input"
-          android:title="@string/menu_input" /> -->
+    <!--     <item android:id="@+id/menu_walls"
+              android:title="@string/menu_walls" />
+        <item android:id="@+id/menu_zoom"
+              android:title="@string/menu_zoom" />
+        <item android:id="@+id/menu_speed"
+              android:title="@string/menu_speed" />
+        <item android:id="@+id/menu_input"
+              android:title="@string/menu_input" /> -->
     <item android:id="@+id/menu_settings"
           android:title="@string/menu_settings" />
     <item android:id="@+id/menu_records"
