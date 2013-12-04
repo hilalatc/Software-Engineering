@@ -29,6 +29,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="$USER_HOME$/Desktop/MSnake20/MSnake/.idea/workspace.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386168407759" ignored="false" />
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/.idea/workspace.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386167715771" ignored="false" />
+    <file path="/strings.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386168720578" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +189,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/values-es/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.8130672">
+            <state line="85" column="57" selection-start="4417" selection-end="4417" vertical-scroll-proportion="0.3139746">
               <folding />
             </state>
           </provider>
@@ -207,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/com/example/Snake/MSnake.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/values-es/strings.xml" />
       </list>
     </option>
   </component>
@@ -769,7 +771,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values-es/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.8130672">
+        <state line="85" column="57" selection-start="4417" selection-end="4417" vertical-scroll-proportion="0.3139746">
           <folding />
         </state>
       </provider>
