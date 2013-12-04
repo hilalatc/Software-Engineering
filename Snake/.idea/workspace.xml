@@ -27,7 +27,7 @@
     <list default="true" id="3bb65273-91af-4236-90cc-3ed0781a7ca4" name="Default" comment="" />
     <ignored path="Snake.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$USER_HOME$/Desktop/MSnake20/MSnake/.idea/workspace.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386168407759" ignored="false" />
+    <file path="$USER_HOME$/Desktop/MSnake20/MSnake/.idea/workspace.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386169635162" ignored="false" />
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/.idea/workspace.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386167715771" ignored="false" />
     <file path="/strings.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386168720578" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -90,24 +90,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <file leaf-file-name="MSnake.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="9" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="0.2361111">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/about_layout.xml">
+      <file leaf-file-name="TileView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="33" selection-start="696" selection-end="696" vertical-scroll-proportion="-5.78">
+            <state line="9" column="28" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -186,10 +185,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values-es/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="57" selection-start="4417" selection-end="4417" vertical-scroll-proportion="0.3139746">
+            <state line="85" column="57" selection-start="4417" selection-end="4417" vertical-scroll-proportion="-6.92">
               <folding />
             </state>
           </provider>
@@ -205,10 +204,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/example/Snake/MSnake.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/values-es/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/Snake/MSnake.java" />
+        <option value="$PROJECT_DIR$/src/com/example/Snake/SnakeView.java" />
+        <option value="$PROJECT_DIR$/src/com/example/Snake/TileView.java" />
       </list>
     </option>
   </component>
@@ -670,27 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="22" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="21" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="36" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="0" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0">
@@ -771,8 +751,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values-es/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="57" selection-start="4417" selection-end="4417" vertical-scroll-proportion="0.3139746">
+        <state line="85" column="57" selection-start="4417" selection-end="4417" vertical-scroll-proportion="-6.92">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="14" selection-start="92" selection-end="92" vertical-scroll-proportion="0.14756945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="28" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="0.2361111">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
