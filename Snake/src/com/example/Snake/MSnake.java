@@ -1,6 +1,7 @@
 package com.example.Snake;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.widget.RadioGroup;
 
 /**
@@ -30,4 +31,11 @@ public class MSnake extends Activity {
     private RadioGroup smsrg2;
     private RadioGroup smsrg3;
     private RadioGroup smsrg4;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.snake_layout);
+    }
 }

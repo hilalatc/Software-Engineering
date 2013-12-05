@@ -97,19 +97,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MSnake.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MSnake.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+            <state line="39" column="5" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.9409722">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SnakeView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="37" selection-start="442" selection-end="442" vertical-scroll-proportion="0.5017361">
+            <state line="17" column="37" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -207,7 +207,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/Snake/MSnake.java" />
         <option value="$PROJECT_DIR$/res/layout/snake_layout.xml" />
         <option value="$PROJECT_DIR$/res/menu/snake_menu.xml" />
         <option value="$PROJECT_DIR$/res/values/arrays.xml" />
@@ -215,6 +214,7 @@
         <option value="$PROJECT_DIR$/res/values-es/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/example/Snake/TileView.java" />
         <option value="$PROJECT_DIR$/src/com/example/Snake/SnakeView.java" />
+        <option value="$PROJECT_DIR$/src/com/example/Snake/MSnake.java" />
       </list>
     </option>
   </component>
@@ -699,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="1" selection-start="4203" selection-end="4203" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/snake_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="63" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.0">
@@ -716,16 +709,23 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+        <state line="17" column="37" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="37" selection-start="442" selection-end="442" vertical-scroll-proportion="0.5017361">
+        <state line="151" column="1" selection-start="4203" selection-end="4203" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="5" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.9409722">
           <folding />
         </state>
       </provider>
