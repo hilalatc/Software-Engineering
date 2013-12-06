@@ -35,7 +35,8 @@ public class MSnake extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.snake_layout);
+
+
     }
 }
