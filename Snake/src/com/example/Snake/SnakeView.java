@@ -30,4 +30,17 @@ public class SnakeView extends TileView {
     public static final int BS_SMALL = 2;
     private int tileSizes[] = {8,16,32};
 
+    private static final int BODY_TILE = 1;
+    private static final int FOOD_TILE = 2;
+    private static final int GREENFOOD_TILE = 3;
+    private static final int REDFOOD_TILE = 4;
+    private static final int WALL_TILE = 5;
+    private static final int HEAD_TILE = 6;
+    private static final int HEAD2_TILE = 7;
+    private static final int HEADEAT_TILE = 8;
+    private static final int HEADBAD_TILE = 9;
+
+    private boolean mDrawHead2 = false;
+    private boolean mDrawHeadEat = false;
+
 }
