@@ -1,6 +1,11 @@
 package com.example.Snake;
 
 import android.app.Activity;
+import android.os.Vibrator;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -70,6 +75,31 @@ public class SnakeView extends TileView {
     public static final int INPUT_MODE_2K = 1;
     public static final int INPUT_MODE_OG = 2;
     public int inputMode = INPUT_MODE_OG;
+
+    private long mLastMove;
+
+
+    private TextView mStatusText;
+
+
+    private TextView mScoreText;
+    private TextView mRecordText;
+
+
+    public boolean mUseWalls = true;
+
+    public boolean mFast = false;
+
+//    private ArrayList<Coordinate> mSnakeTrail = new ArrayList<Coordinate>();
+//    private ArrayList<Coordinate> mAppleList = new ArrayList<Coordinate>();
+//    private Coordinate mRedApple = new Coordinate(1,1);
+//    private boolean mActiveRedApple = false;
+//    private Coordinate mGreenApple = new Coordinate(1,1);
+//    private boolean mActiveGreenApple = false;
+
+    private static final Random RNG = new Random();
+
+    private Vibrator mVibrator;
 
 
 
