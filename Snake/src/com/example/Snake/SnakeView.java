@@ -43,4 +43,34 @@ public class SnakeView extends TileView {
     private boolean mDrawHead2 = false;
     private boolean mDrawHeadEat = false;
 
+    private long mScore = 0;
+    private long mMoveDelay = 500;
+    public static final int RECORD_BIG_WON = 0;
+    public static final int RECORD_BIG_WOFF = 1;
+    public static final int RECORD_NORMAL_WON = 2;
+    public static final int RECORD_NORMAL_WOFF = 3;
+    public static final int RECORD_SMALL_WON = 4;
+    public static final int RECORD_SMALL_WOFF = 5;
+    public static final int RECORD_BIG_WON_FAST = 6;
+    public static final int RECORD_BIG_WOFF_FAST = 7;
+    public static final int RECORD_NORMAL_WON_FAST = 8;
+    public static final int RECORD_NORMAL_WOFF_FAST = 9;
+    public static final int RECORD_SMALL_WON_FAST = 10;
+    public static final int RECORD_SMALL_WOFF_FAST = 11;
+    private int indRecord = RECORD_NORMAL_WON;
+    private long mRecords[] = new long[12];
+
+    private int numcollision = 0;
+    public boolean firstTime = true;
+    public boolean showNews20 = true;
+
+    public boolean noSmallSize = false;
+
+    public static final int INPUT_MODE_4K = 0;
+    public static final int INPUT_MODE_2K = 1;
+    public static final int INPUT_MODE_OG = 2;
+    public int inputMode = INPUT_MODE_OG;
+
+
+
 }
