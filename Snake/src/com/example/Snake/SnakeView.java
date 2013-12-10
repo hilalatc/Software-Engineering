@@ -190,6 +190,19 @@ public class SnakeView extends TileView {
         mVibrator = v;
     }
 
+    private void setRecordIndex() {
+        if (mUseWalls) {
+            if (mBoardSize == BS_SMALL) indRecord = RECORD_SMALL_WON;
+            else if (mBoardSize == BS_NORMAL) indRecord = RECORD_NORMAL_WON;
+            else indRecord = RECORD_BIG_WON;
+        } else {
+            if (mBoardSize == BS_SMALL) indRecord = RECORD_SMALL_WOFF;
+            else if (mBoardSize == BS_NORMAL) indRecord = RECORD_NORMAL_WOFF;
+            else indRecord = RECORD_BIG_WOFF;
+        }
+        if (mFast) indRecord += 6;
+    }
+
 
 
 }
