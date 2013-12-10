@@ -162,6 +162,34 @@ public class SnakeView extends TileView {
 
     }
 
+    public void initNewGame() {
+//        mSnakeTrail.clear();
+//        mAppleList.clear();
+//
+//        // For now we're just going to load up a short default eastbound snake
+//        // that's just turned north
+//        mSnakeTrail.add(new Coordinate(7, 7));
+//        mSnakeTrail.add(new Coordinate(6, 7));
+//        mSnakeTrail.add(new Coordinate(5, 7));
+//        mSnakeTrail.add(new Coordinate(4, 7));
+//        mSnakeTrail.add(new Coordinate(3, 7));
+//        mSnakeTrail.add(new Coordinate(2, 7));
+//        mNextDirection = NORTH;
+//
+//        // Two apples to start with
+//        mActiveGreenApple = false;
+//        mActiveRedApple = false;
+//        addRandomApple();
+//        addRandomApple();
+
+        mMoveDelay = (mFast) ? 250 : 500;
+        mScore = 0;
+    }
+
+    public void setVibrator(Vibrator v) {
+        mVibrator = v;
+    }
+
 
 
 }

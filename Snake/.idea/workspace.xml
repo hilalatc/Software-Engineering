@@ -109,7 +109,7 @@
       <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="5" selection-start="5351" selection-end="5351" vertical-scroll-proportion="4.7482758">
+            <state line="165" column="10" selection-start="5395" selection-end="6064" vertical-scroll-proportion="0.20862068">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -730,7 +730,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="5" selection-start="5351" selection-end="5351" vertical-scroll-proportion="4.7482758">
+        <state line="165" column="10" selection-start="5395" selection-end="6064" vertical-scroll-proportion="0.20862068">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
