@@ -1,7 +1,12 @@
 package com.example.Snake;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Vibrator;
+import android.util.AttributeSet;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -100,6 +105,62 @@ public class SnakeView extends TileView {
     private static final Random RNG = new Random();
 
     private Vibrator mVibrator;
+
+    private RefreshHandler mRedrawHandler = new RefreshHandler();
+
+    class RefreshHandler extends Handler {
+
+        @Override
+        public void handleMessage(Message msg) {
+           // SnakeView.this.update();
+            SnakeView.this.invalidate();
+        }
+
+        public void sleep(long delayMillis) {
+            this.removeMessages(0);
+            sendMessageDelayed(obtainMessage(0), delayMillis);
+        }
+    };
+
+
+    public SnakeView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        for (int i=0; i<12; i++) mRecords[i] = 0;
+        initSnakeView();
+    }
+
+    public SnakeView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        for (int i=0; i<12; i++) mRecords[i] = 0;
+        initSnakeView();
+    }
+
+    public void setTileSizes(int w, int h) {
+        if (h < 300 || w < 300) noSmallSize = true; // qvga device
+        if (h < 400 || w < 400) { // qvga & hvga devices
+            tileSizes[0] = 6;
+            tileSizes[1] = 12;
+            tileSizes[2] = 24;
+        }
+    }
+
+    private void initSnakeView() {
+        setFocusable(true);
+
+        Resources r = this.getContext().getResources();
+
+        resetBitmapTiles(10);
+        loadBitmapTile(BODY_TILE, r.getDrawable(R.drawable.bodytile));
+        loadBitmapTile(FOOD_TILE, r.getDrawable(R.drawable.appletile));
+        loadBitmapTile(GREENFOOD_TILE, r.getDrawable(R.drawable.peppertile));
+        loadBitmapTile(REDFOOD_TILE, r.getDrawable(R.drawable.redpeppertile));
+        loadBitmapTile(WALL_TILE, r.getDrawable(R.drawable.walltile2));
+        loadBitmapTile(HEAD_TILE, r.getDrawable(R.drawable.headtile));
+        loadBitmapTile(HEAD2_TILE, r.getDrawable(R.drawable.head2tile));
+        loadBitmapTile(HEADEAT_TILE, r.getDrawable(R.drawable.headeattile));
+        loadBitmapTile(HEADBAD_TILE, r.getDrawable(R.drawable.headbadtile));
+
+    }
 
 
 
