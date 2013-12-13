@@ -203,6 +203,29 @@ public class SnakeView extends TileView {
         if (mFast) indRecord += 6;
     }
 
+    private int indrtline[] = {R.string.records_line0, R.string.records_line1,
+            R.string.records_line2, R.string.records_line3, R.string.records_line4,
+            R.string.records_line5, R.string.records_line6, R.string.records_line7,
+            R.string.records_line8, R.string.records_line9, R.string.records_line10,
+            R.string.records_line11};
+
+    public String getRecordsText() {
+        String str = "";
+        Resources res = getContext().getResources();
+
+        str = res.getString(R.string.records_linet);
+        for (int i=0; i<12; i++) {
+            if (noSmallSize && (i==4 || i==5 || i==10 || i==11)) continue;
+//        	if (i == indRecord) str = str + "<b>";
+            str = str + res.getString(indrtline[i]) + mRecords[i];
+            if (i == indRecord) str = str + "*";
+//        	if (i == indRecord) str = str + "</b>";
+//        	str = str + "<br>";
+        }
+        str = str + "\n";
+        return str;
+    }
+
 
 
 }
