@@ -2,6 +2,7 @@ package com.example.Snake;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Message;
@@ -290,6 +291,30 @@ public class SnakeView extends TileView {
         }
         setRecordIndex();
         Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
+    }
+
+    public void savePreferences(SharedPreferences settings) {
+        SharedPreferences.Editor editor = settings.edit();
+        editor.clear();
+        editor.putBoolean("mUseWalls", mUseWalls);
+        editor.putBoolean("mFast", mFast);
+        editor.putInt("mTileSize", mTileSize);
+        editor.putInt("mBoardSize", mBoardSize);
+        editor.putLong("mRecords0", mRecords[0]);
+        editor.putLong("mRecords1", mRecords[1]);
+        editor.putLong("mRecords2", mRecords[2]);
+        editor.putLong("mRecords3", mRecords[3]);
+        editor.putLong("mRecords4", mRecords[4]);
+        editor.putLong("mRecords5", mRecords[5]);
+        editor.putLong("mRecords6", mRecords[6]);
+        editor.putLong("mRecords7", mRecords[7]);
+        editor.putLong("mRecords8", mRecords[8]);
+        editor.putLong("mRecords9", mRecords[9]);
+        editor.putLong("mRecords10", mRecords[10]);
+        editor.putLong("mRecords11", mRecords[11]);
+        editor.putBoolean("showNews20", showNews20);
+        editor.putInt("inputMode", inputMode);
+        editor.commit();
     }
 
 
