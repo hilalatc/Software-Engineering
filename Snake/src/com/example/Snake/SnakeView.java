@@ -317,6 +317,29 @@ public class SnakeView extends TileView {
         editor.commit();
     }
 
+    public void restorePreferences(SharedPreferences settings) {
+        mUseWalls = settings.getBoolean("mUseWalls", true);
+        mFast = settings.getBoolean("mFast", false);
+        mTileSize = settings.getInt("mTileSize", tileSizes[BS_NORMAL]);
+        mBoardSize = settings.getInt("mBoardSize", BS_NORMAL);
+        mRecords[0] = settings.getLong("mRecords0", 0);
+        mRecords[1] = settings.getLong("mRecords1", 0);
+        mRecords[2] = settings.getLong("mRecords2", 0);
+        mRecords[3] = settings.getLong("mRecords3", 0);
+        mRecords[4] = settings.getLong("mRecords4", 0);
+        mRecords[5] = settings.getLong("mRecords5", 0);
+        mRecords[6] = settings.getLong("mRecords6", 0);
+        mRecords[7] = settings.getLong("mRecords7", 0);
+        mRecords[8] = settings.getLong("mRecords8", 0);
+        mRecords[9] = settings.getLong("mRecords9", 0);
+        mRecords[10] = settings.getLong("mRecords10", 0);
+        mRecords[11] = settings.getLong("mRecords11", 0);
+        showNews20 = settings.getBoolean("showNews20", true);
+        inputMode = settings.getInt("inputMode", INPUT_MODE_OG);
+        initSnakeView();
+        setRecordIndex();
+    }
+
 
 
 }
