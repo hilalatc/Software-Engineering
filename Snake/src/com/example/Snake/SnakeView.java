@@ -8,6 +8,7 @@ import android.os.Message;
 import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -224,6 +225,38 @@ public class SnakeView extends TileView {
         }
         str = str + "\n";
         return str;
+    }
+
+    public void zoomTileSize(int size){
+        Resources res = getContext().getResources();
+        CharSequence str = "";
+
+        if (size == BS_NORMAL) {
+            mBoardSize = BS_NORMAL;
+            mTileSize = tileSizes[BS_NORMAL];
+            str = res.getText(R.string.toast_zoomnormal);
+        }
+        else if (size == BS_BIG) {
+            mBoardSize = BS_BIG;
+            mTileSize = tileSizes[BS_BIG];
+            str = res.getText(R.string.toast_zoombig);
+        }
+        else {
+            // Don't use the small size in QVGA devices
+            if (!noSmallSize){
+                mBoardSize = BS_SMALL;
+                mTileSize = tileSizes[BS_SMALL];
+                str = res.getText(R.string.toast_zoomsmall);
+            } else {
+                mBoardSize = BS_NORMAL;
+                mTileSize = tileSizes[BS_NORMAL];
+                str = res.getText(R.string.toast_zoomnormal);
+            }
+        }
+        setRecordIndex();
+        recalcTileGrid();
+        initSnakeView();
+        Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
     }
 
 
