@@ -260,5 +260,22 @@ public class SnakeView extends TileView {
     }
 
 
+    public void changeWalls(){
+        Resources res = getContext().getResources();
+        CharSequence str = "";
+
+        mUseWalls = !mUseWalls;
+        clearTiles();
+        if (mUseWalls) {
+            str = res.getText(R.string.toast_wallson);
+        }
+        else {
+            str = res.getText(R.string.toast_wallsoff);
+        }
+        setRecordIndex();
+        Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
+    }
+
+
 
 }
