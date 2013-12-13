@@ -276,6 +276,22 @@ public class SnakeView extends TileView {
         Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
     }
 
+    public void changeSpeed(){
+        Resources res = getContext().getResources();
+        CharSequence str = "";
+
+        mFast = !mFast;
+        clearTiles();
+        if (mFast) {
+            str = res.getText(R.string.toast_faston);
+        }
+        else {
+            str = res.getText(R.string.toast_fastoff);
+        }
+        setRecordIndex();
+        Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
+    }
+
 
 
 }
