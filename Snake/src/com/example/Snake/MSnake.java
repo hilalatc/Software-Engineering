@@ -1,8 +1,10 @@
 package com.example.Snake;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,5 +40,18 @@ public class MSnake extends Activity {
         setContentView(R.layout.snake_layout);
 
 
+        mSnakeView = (SnakeView) findViewById(R.id.snake);
+        mSnakeView.setTextView((TextView) findViewById(R.id.text));
+        mSnakeView.setScoreView((TextView) findViewById(R.id.textscore));
+        mSnakeView.setRecordView((TextView) findViewById(R.id.textrecord));
+
+        int dHeight = getWindowManager().getDefaultDisplay().getHeight();
+        int dWidth = getWindowManager().getDefaultDisplay().getWidth();
+        mSnakeView.setTileSizes(dWidth, dHeight);
+
+        // Restore preferences
+        SharedPreferences settings = getPreferences(0);
+        mSnakeView.restorePreferences(settings);
+        setCorrectButtons();
     }
 }

@@ -479,6 +479,10 @@ public class SnakeView extends TileView {
         return super.onKeyDown(keyCode, msg);
     }
 
+    private float savedX;
+    private float savedY;
+    private int savedMode;
+
 
 
 }
