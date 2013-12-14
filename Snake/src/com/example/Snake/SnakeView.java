@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -338,6 +340,143 @@ public class SnakeView extends TileView {
         inputMode = settings.getInt("inputMode", INPUT_MODE_OG);
         initSnakeView();
         setRecordIndex();
+    }
+
+    private int[] coordArrayListToArray(ArrayList<Coordinate> cvec) {
+        int count = cvec.size();
+        int[] rawArray = new int[count * 2];
+        for (int index = 0; index < count; index++) {
+            Coordinate c = cvec.get(index);
+            rawArray[2 * index] = c.x;
+            rawArray[2 * index + 1] = c.y;
+        }
+        return rawArray;
+    }
+
+    public Bundle saveState() {
+        Bundle map = new Bundle();
+
+        map.putIntArray("mAppleList", coordArrayListToArray(mAppleList));
+        map.putInt("mDirection", Integer.valueOf(mDirection));
+        map.putInt("mNextDirection", Integer.valueOf(mNextDirection));
+        map.putInt("mTileSize", Integer.valueOf(mTileSize));
+        map.putInt("mBoardSize", Integer.valueOf(mBoardSize));
+        map.putLong("mMoveDelay", Long.valueOf(mMoveDelay));
+        map.putLong("mScore", Long.valueOf(mScore));
+        map.putLongArray("mRecords", mRecords);
+        map.putInt("indRecord", Integer.valueOf(indRecord));
+        map.putBoolean("mUseWalls", Boolean.valueOf(mUseWalls));
+        map.putBoolean("mFast", Boolean.valueOf(mFast));
+        map.putIntArray("mSnakeTrail", coordArrayListToArray(mSnakeTrail));
+        map.putInt("RedApplex", mRedApple.x);
+        map.putInt("RedAppley", mRedApple.y);
+        map.putBoolean("mActiveRedApple", Boolean.valueOf(mActiveRedApple));
+        map.putInt("GreenApplex", mGreenApple.x);
+        map.putInt("GreenAppley", mGreenApple.y);
+        map.putBoolean("mActiveGreenApple", Boolean.valueOf(mActiveGreenApple));
+        map.putInt("inputMode", inputMode);
+
+        return map;
+    }
+
+    private ArrayList<Coordinate> coordArrayToArrayList(int[] rawArray) {
+        ArrayList<Coordinate> coordArrayList = new ArrayList<Coordinate>();
+
+        int coordCount = rawArray.length;
+        for (int index = 0; index < coordCount; index += 2) {
+            Coordinate c = new Coordinate(rawArray[index], rawArray[index + 1]);
+            coordArrayList.add(c);
+        }
+        return coordArrayList;
+    }
+
+    public void restoreState(Bundle icicle) {
+        setMode(PAUSE);
+
+        mAppleList = coordArrayToArrayList(icicle.getIntArray("mAppleList"));
+        mDirection = icicle.getInt("mDirection");
+        mNextDirection = icicle.getInt("mNextDirection");
+        mTileSize = icicle.getInt("mTileSize");
+        mBoardSize = icicle.getInt("mBoardSize");
+        mMoveDelay = icicle.getLong("mMoveDelay");
+        mScore = icicle.getLong("mScore");
+        mRecords = icicle.getLongArray("mRecords");
+        indRecord = icicle.getInt("indRecord");
+        mUseWalls = icicle.getBoolean("mUseWalls");
+        mFast = icicle.getBoolean("mFast");
+        mSnakeTrail = coordArrayToArrayList(icicle.getIntArray("mSnakeTrail"));
+        mRedApple.x = icicle.getInt("RedApplex");
+        mRedApple.y = icicle.getInt("RedAppley");
+        mActiveRedApple = icicle.getBoolean("mActiveRedApple");
+        mGreenApple.x = icicle.getInt("GreenApplex");
+        mGreenApple.y = icicle.getInt("GreenAppley");
+        mActiveGreenApple = icicle.getBoolean("mActiveGreenApple");
+        inputMode = icicle.getInt("inputMode");
+    }
+
+    /*
+     * handles key events in the game. Update the direction our snake is traveling
+     * based on the DPAD. Ignore events that would cause the snake to immediately
+     * turn back on itself.
+     *
+     * (non-Javadoc)
+     *
+     * @see android.view.View#onKeyDown(int, android.os.KeyEvent)
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent msg) {
+
+        if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
+            if (mMode == READY) {
+                // no initNewGame() because we have initiated it in setMode
+                setMode(RUNNING);
+                return (true);
+            }
+
+            if (mMode == LOSE) {
+                initNewGame();
+                setMode(RUNNING);
+                return (true);
+            }
+
+            if (mMode == PAUSE) {
+                setMode(RUNNING);
+                return (true);
+            }
+
+            setMode(PAUSE);
+            return (true);
+        }
+
+        if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
+            if (mDirection != SOUTH) {
+                mNextDirection = NORTH;
+            }
+            return (true);
+        }
+
+        if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
+            if (mDirection != NORTH) {
+                mNextDirection = SOUTH;
+            }
+            return (true);
+        }
+
+        if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
+            if (mDirection != EAST) {
+                mNextDirection = WEST;
+            }
+            return (true);
+        }
+
+        if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+            if (mDirection != WEST) {
+                mNextDirection = EAST;
+            }
+            return (true);
+        }
+
+        return super.onKeyDown(keyCode, msg);
     }
 
 
