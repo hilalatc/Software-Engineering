@@ -10,6 +10,7 @@ import android.os.Message;
 import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -482,6 +483,63 @@ public class SnakeView extends TileView {
     private float savedX;
     private float savedY;
     private int savedMode;
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            savedX = event.getX();
+            savedY = event.getY();
+            savedMode = mMode;
+            return (true);
+        }
+
+        if (event.getAction() != MotionEvent.ACTION_UP)
+            return (true);
+
+        if (savedMode != mMode)
+            return (true);
+
+        float distX = savedX - event.getX();
+        float distY = savedY - event.getY();
+        float adistX = Math.abs(distX);
+        float adistY = Math.abs(distY);
+
+        if (adistX+adistY >= 10) {
+            if (adistX > adistY) {
+                if (distX > 0) {
+                    if (mDirection != EAST) mNextDirection = WEST;
+                } else {
+                    if (mDirection != WEST) mNextDirection = EAST;
+                }
+            } else {
+                if (distY > 0) {
+                    if (mDirection != SOUTH) mNextDirection = NORTH;
+                } else {
+                    if (mDirection != NORTH) mNextDirection = SOUTH;
+                }
+            }
+        }
+
+        if (mMode == READY) {
+            // no initNewGame() because we have initiated it in setMode
+            setMode(RUNNING);
+            // return (true);
+        } else if (mMode == LOSE) {
+            initNewGame();
+            setMode(RUNNING);
+            // return (true);
+        } else if (mMode == PAUSE) {
+            setMode(RUNNING);
+            //return (true);
+        } else if (mMode == RUNNING) {
+            if (adistX+adistY < 10) {
+                setMode(PAUSE);
+                //return (true);
+            }
+        }
+
+        return (true);
+    }
 
 
 

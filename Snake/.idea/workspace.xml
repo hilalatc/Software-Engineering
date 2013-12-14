@@ -97,19 +97,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MSnake.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MSnake.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="73" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.41379312">
+            <state line="36" column="73" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnakeView.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="390" column="74" selection-start="14048" selection-end="14048" vertical-scroll-proportion="0.0">
+            <state line="541" column="5" selection-start="18715" selection-end="18715" vertical-scroll-proportion="0.9413793">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -215,8 +215,8 @@
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/values-es/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/example/Snake/TileView.java" />
-        <option value="$PROJECT_DIR$/src/com/example/Snake/SnakeView.java" />
         <option value="$PROJECT_DIR$/src/com/example/Snake/MSnake.java" />
+        <option value="$PROJECT_DIR$/src/com/example/Snake/SnakeView.java" />
       </list>
     </option>
   </component>
@@ -721,19 +721,19 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="390" column="74" selection-start="14048" selection-end="14048" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="36" column="73" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="73" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.41379312">
-          <folding />
+        <state line="541" column="5" selection-start="18715" selection-end="18715" vertical-scroll-proportion="0.9413793">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
