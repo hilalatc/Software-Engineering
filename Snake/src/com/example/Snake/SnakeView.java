@@ -541,6 +541,70 @@ public class SnakeView extends TileView {
         return (true);
     }
 
+    public void bIzquierda() {
+        if (inputMode == INPUT_MODE_2K) {
+            if (mDirection == EAST) mNextDirection = NORTH;
+            else if (mDirection == NORTH) mNextDirection = WEST;
+            else if (mDirection == WEST) mNextDirection = SOUTH;
+            else mNextDirection = EAST;
+            return;
+        }
+        if (mDirection != EAST) {
+            mNextDirection = WEST;
+        }
+    }
+
+    public void bArriba() {
+        if (inputMode == INPUT_MODE_2K) return;
+        if (mDirection != SOUTH) {
+            mNextDirection = NORTH;
+        }
+    }
+
+    public void bAbajo() {
+        if (inputMode == INPUT_MODE_2K) return;
+        if (mDirection != NORTH) {
+            mNextDirection = SOUTH;
+        }
+    }
+
+
+    public void bDerecha() {
+        if (inputMode == INPUT_MODE_2K) {
+            if (mDirection == EAST) mNextDirection = SOUTH;
+            else if (mDirection == NORTH) mNextDirection = EAST;
+            else if (mDirection == WEST) mNextDirection = NORTH;
+            else mNextDirection = WEST;
+            return;
+        }
+        if (mDirection != WEST) {
+            mNextDirection = EAST;
+        }
+    }
+
+    /**
+     * Sets the TextView that will be used to give information (such as "Game
+     * Over" to the user.
+     *
+     * @param newView
+     */
+    public void setTextView(TextView newView) {
+        mStatusText = newView;
+    }
+
+    /**
+     * Sets the TextView that will be used to show score and record
+     *
+     * @param newView
+     */
+    public void setScoreView(TextView newView) {
+        mScoreText = newView;
+    }
+
+    public void setRecordView(TextView newView) {
+        mRecordText = newView;
+    }
+
 
 
 }
