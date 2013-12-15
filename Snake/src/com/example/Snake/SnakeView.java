@@ -11,6 +11,7 @@ import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -603,6 +604,57 @@ public class SnakeView extends TileView {
 
     public void setRecordView(TextView newView) {
         mRecordText = newView;
+    }
+
+    /**
+     * Updates the current mode of the application (RUNNING or PAUSED or the like)
+     * as well as sets the visibility of textview for notification
+     *
+     * @param newMode
+     */
+    public void setMode(int newMode) {
+        int oldMode = mMode;
+        mMode = newMode;
+
+        updateScore();
+
+        if (newMode == RUNNING & oldMode != RUNNING) {
+            mStatusText.setVisibility(View.INVISIBLE);
+            update();
+            invalidate();
+            return;
+        }
+
+        Resources res = getContext().getResources();
+        CharSequence str = "";
+        if (newMode == PAUSE) {
+            str = res.getText(R.string.mode_pause);
+        }
+        if (newMode == READY) {
+            if (!firstTime) {
+                initNewGame();
+                updateElements();
+                invalidate();
+            }
+            str = res.getText(R.string.mode_ready);
+        }
+        if (newMode == LOSE) {
+            if (mScore > mRecords[indRecord]) {
+                mRecords[indRecord] = mScore;
+                str = res.getString(R.string.mode_lose_prefix_cr) + mScore
+                        + res.getString(R.string.mode_lose_suffix);
+            } else {
+                str = res.getString(R.string.mode_lose_prefix) + mScore
+                        + res.getString(R.string.mode_lose_suffix);
+            }
+        }
+
+        mStatusText.setText(str);
+        mStatusText.setVisibility(View.VISIBLE);
+    }
+
+    public int getMode() {
+        return mMode;
     }
 
 
