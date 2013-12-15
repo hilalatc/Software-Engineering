@@ -657,6 +657,70 @@ public class SnakeView extends TileView {
         return mMode;
     }
 
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        if (firstTime) {
+            if (mMode == READY) {
+                initNewGame();
+                updateElements();
+            }
+            else if (mMode == PAUSE) {
+                updateElements();
+            }
+        }
+        firstTime = false;
+    }
+
+    /**
+     * Selects a random location within the garden that is not currently covered
+     * by the snake. Currently _could_ go into an infinite loop if the snake
+     * currently fills the garden, but we'll leave discovery of this prize to a
+     * truly excellent snake-player.
+     *
+     */
+
+    private Coordinate findFreeCoordinate() {
+        Coordinate newCoord = null;
+        boolean found = false;
+        while (!found) {
+            // Choose a new location for our apple
+            int newX = 1 + RNG.nextInt(mXTileCount - 2);
+            int newY = 1 + RNG.nextInt(mYTileCount - 2);
+            newCoord = new Coordinate(newX, newY);
+
+            // Make sure it's not already under the snake
+            boolean collision = false;
+            int snakelength = mSnakeTrail.size();
+            for (int index = 0; index < snakelength; index++) {
+                if (mSnakeTrail.get(index).equals(newCoord)) {
+                    collision = true;
+                    numcollision++;
+                }
+            }
+            int applelength = mAppleList.size();
+            for (int index = 0; index < applelength; index++) {
+                if (mAppleList.get(index).equals(newCoord)) {
+                    collision = true;
+                    numcollision++;
+                }
+            }
+            if (mActiveRedApple && mRedApple.equals(newCoord)) {
+                collision = true;
+                numcollision++;
+            }
+            if (mActiveGreenApple && mGreenApple.equals(newCoord)) {
+                collision = true;
+                numcollision++;
+            }
+            // if we're here and there's been no collision, then we have
+            // a good location for an apple. Otherwise, we'll circle back
+            // and try again
+            found = !collision;
+        }
+        return newCoord;
+    }
+
 
 
 }
