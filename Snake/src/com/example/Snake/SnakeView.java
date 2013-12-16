@@ -793,6 +793,142 @@ public class SnakeView extends TileView {
         }
     }
 
+    private void updateSnake() {
+        boolean growSnake = false;
+        boolean mustAddRandomApple = false;
+        boolean mustAddGreenApple = false;
+
+        // grab the snake by the head
+        Coordinate head = mSnakeTrail.get(0);
+        Coordinate newHead = new Coordinate(1, 1);
+
+        mDirection = mNextDirection;
+
+        switch (mDirection) {
+            case EAST: {
+                newHead = new Coordinate(head.x + 1, head.y);
+                break;
+            }
+            case WEST: {
+                newHead = new Coordinate(head.x - 1, head.y);
+                break;
+            }
+            case NORTH: {
+                newHead = new Coordinate(head.x, head.y - 1);
+                break;
+            }
+            case SOUTH: {
+                newHead = new Coordinate(head.x, head.y + 1);
+                break;
+            }
+        }
+
+        // Collision detection with walls if we are suing them or adjust head position
+        if (mUseWalls) {
+            if ((newHead.x < 1) || (newHead.y < 1) || (newHead.x > mXTileCount - 2)
+                    || (newHead.y > mYTileCount - 2)) {
+                mVibrator.vibrate(300);
+                setMode(LOSE);
+                drawSnakeBad();
+                return;
+            }
+        }
+        else {
+            if (newHead.x < 0) newHead.x = mXTileCount - 1;
+            if (newHead.x > mXTileCount - 1) newHead.x = 0;
+            if (newHead.y < 0) newHead.y = mYTileCount - 1;
+            if (newHead.y > mYTileCount - 1) newHead.y = 0;
+        }
+
+        // Look for collisions with itself
+        int snakelength = mSnakeTrail.size();
+        for (int snakeindex = 0; snakeindex < snakelength; snakeindex++) {
+            Coordinate c = mSnakeTrail.get(snakeindex);
+            if (c.equals(newHead)) {
+                mVibrator.vibrate(400);
+                setMode(LOSE);
+                drawSnakeBad();
+                return;
+            }
+        }
+
+        // Look for apples
+        int applecount = mAppleList.size();
+        for (int appleindex = 0; appleindex < applecount; appleindex++) {
+            Coordinate c = mAppleList.get(appleindex);
+            if (c.equals(newHead)) {
+                mAppleList.remove(c);
+                mustAddRandomApple = true;
+                mScore++;
+                mMoveDelay *= 0.95;
+                updateScore();
+                mVibrator.vibrate(100);
+                mDrawHeadEat = true;
+                growSnake = true;
+                break;
+            }
+        }
+        // Look for red apple
+        if (mActiveRedApple && mRedApple.equals(newHead)){
+            mActiveRedApple = false;
+            mScore += 2;
+            mMoveDelay = (mFast) ? 150 : 300;
+            updateScore();
+            mVibrator.vibrate(100);
+            mDrawHeadEat = true;
+            mustAddGreenApple = true;
+        }
+        // Look for green apple
+        if (mActiveGreenApple && mGreenApple.equals(newHead)){
+            mActiveGreenApple = false;
+            mScore += 3;
+            mMoveDelay /= 2;
+            updateScore();
+            mVibrator.vibrate(100);
+            mDrawHeadEat = true;
+            growSnake = true;
+        }
+
+        // push a new head onto the ArrayList and pull off the tail
+        mSnakeTrail.add(0, newHead);
+        // except if we want the snake to grow
+        if (!growSnake) {
+            mSnakeTrail.remove(mSnakeTrail.size() - 1);
+        }
+
+        int index = 0;
+        for (Coordinate c : mSnakeTrail) {
+            if (index == 0) {
+                if (mDrawHeadEat)
+                    setTile(HEADEAT_TILE, c.x, c.y);
+                else if (mDrawHead2)
+                    setTile(HEAD2_TILE, c.x, c.y);
+                else
+                    setTile(HEAD_TILE, c.x, c.y);
+                mDrawHeadEat = false;
+                mDrawHead2 = !mDrawHead2;
+            } else {
+                setTile(BODY_TILE, c.x, c.y);
+            }
+            index++;
+        }
+
+        if (mustAddRandomApple) addRandomApple();
+        if (mustAddGreenApple) addGreenApple();
+
+        int limit = (mFast) ? 90 : 150;
+        if (mMoveDelay < limit ){
+            if (!mActiveRedApple) {
+                addRedApple();
+                mActiveGreenApple = false;
+            }
+        } else {
+            if (mActiveRedApple) {
+                mActiveRedApple = false;
+            }
+        }
+    }
+
 
 
 }
