@@ -721,6 +721,78 @@ public class SnakeView extends TileView {
         return newCoord;
     }
 
+    private void addRandomApple() {
+        Coordinate newCoord = null;
+
+        newCoord = findFreeCoordinate();
+        mAppleList.add(newCoord);
+    }
+
+    private void addRedApple() {
+        mRedApple = findFreeCoordinate();
+        mActiveRedApple = true;
+    }
+
+    private void addGreenApple() {
+        mGreenApple = findFreeCoordinate();
+        mActiveGreenApple = true;
+    }
+
+    /**
+     * Handles the basic update loop, checking to see if we are in the running
+     * state, determining if a move should be made, updating the snake's location.
+     */
+    public void update() {
+        if (mMode == RUNNING) {
+            long now = System.currentTimeMillis();
+
+            if (now - mLastMove >= mMoveDelay) {
+                updateElements();
+                mLastMove = now;
+            }
+            mRedrawHandler.sleep(mMoveDelay);
+        }
+    }
+
+    public void updateElements() {
+        clearTiles();
+        updateWalls();
+        updateSnake();
+        updateApples();
+    }
+
+    /**
+     * Draws some walls.
+     *
+     */
+    private void updateWalls() {
+        if (!mUseWalls) return;
+        for (int x = 0; x < mXTileCount; x++) {
+            setTile(WALL_TILE, x, 0);
+            setTile(WALL_TILE, x, mYTileCount - 1);
+        }
+        for (int y = 1; y < mYTileCount - 1; y++) {
+            setTile(WALL_TILE, 0, y);
+            setTile(WALL_TILE, mXTileCount - 1, y);
+        }
+    }
+
+    /**
+     * Draws some apples.
+     *
+     */
+    private void updateApples() {
+        for (Coordinate c : mAppleList) {
+            setTile(FOOD_TILE, c.x, c.y);
+        }
+        if (mActiveRedApple) {
+            setTile(REDFOOD_TILE, mRedApple.x, mRedApple.y);
+        }
+        if (mActiveGreenApple) {
+            setTile(GREENFOOD_TILE, mGreenApple.x, mGreenApple.y);
+        }
+    }
+
 
 
 }
