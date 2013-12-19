@@ -1,8 +1,12 @@
 package com.example.Snake;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -53,5 +57,79 @@ public class MSnake extends Activity {
         SharedPreferences settings = getPreferences(0);
         mSnakeView.restorePreferences(settings);
         setCorrectButtons();
+        if (savedInstanceState == null) {
+            // We were just launched -- set up a new game
+            mSnakeView.setMode(SnakeView.READY);
+        } else {
+            // We are being restored
+            Bundle map = savedInstanceState.getBundle(ICICLE_KEY);
+            if (map != null) {
+                mSnakeView.restoreState(map);
+            } else {
+                mSnakeView.setMode(SnakeView.READY);
+            }
+        }
+        if (mSnakeView.showNews20) showDialog(DIALOG_NEWS_ID);
+//    	Log.d(TAG, "onCreate end");
     }
+
+    protected void setCorrectButtons() {
+        Button mButton[] = new Button[6];
+
+        mButton[0] = (Button) findViewById(R.id.button0);
+        mButton[1] = (Button) findViewById(R.id.button1);
+        mButton[2] = (Button) findViewById(R.id.button2);
+        mButton[3] = (Button) findViewById(R.id.button3);
+        mButton[4] = (Button) findViewById(R.id.button4);
+        mButton[5] = (Button) findViewById(R.id.button5);
+
+        if (mSnakeView.inputMode == SnakeView.INPUT_MODE_2K) {
+            mButton[0].setVisibility(View.VISIBLE);
+            mButton[1].setVisibility(View.GONE);
+            mButton[2].setVisibility(View.GONE);
+            mButton[3].setVisibility(View.GONE);
+            mButton[4].setVisibility(View.GONE);
+            mButton[5].setVisibility(View.VISIBLE);
+        } else if (mSnakeView.inputMode == SnakeView.INPUT_MODE_4K) {
+            mButton[0].setVisibility(View.GONE);
+            mButton[1].setVisibility(View.VISIBLE);
+            mButton[2].setVisibility(View.VISIBLE);
+            mButton[3].setVisibility(View.VISIBLE);
+            mButton[4].setVisibility(View.VISIBLE);
+            mButton[5].setVisibility(View.GONE);
+        } else {
+            mButton[0].setVisibility(View.GONE);
+            mButton[1].setVisibility(View.GONE);
+            mButton[2].setVisibility(View.GONE);
+            mButton[3].setVisibility(View.GONE);
+            mButton[4].setVisibility(View.GONE);
+            mButton[5].setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Vibrator mvibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        mSnakeView.setVibrator(mvibrator);
+//    	Log.d(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Pause the game along with the activity if RUNNING!!
+        if (mSnakeView.getMode() == SnakeView.RUNNING) {
+            mSnakeView.setMode(SnakeView.PAUSE);
+        }
+//    	Log.d(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences settings = getPreferences(0);
+        mSnakeView.savePreferences(settings);
+    }
+
 }
