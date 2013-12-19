@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -132,4 +134,45 @@ public class MSnake extends Activity {
         mSnakeView.savePreferences(settings);
     }
 
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        //Store the game state
+        outState.putBundle(ICICLE_KEY, mSnakeView.saveState());
+    }
+
+    public void bIzquierda(View view) {
+        mSnakeView.bIzquierda();
+    }
+
+    public void bArriba(View view) {
+        mSnakeView.bArriba();
+    }
+
+    public void bAbajo(View view) {
+        mSnakeView.bAbajo();
+    }
+
+    public void bDerecha(View view) {
+        mSnakeView.bDerecha();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.snake_menu, menu);
+        menu.findItem(R.id.menu_about).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_info_details));
+        menu.findItem(R.id.menu_records).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_view));
+        menu.findItem(R.id.menu_settings).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_preferences));
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (mSnakeView.getMode() == SnakeView.RUNNING)
+            mSnakeView.setMode(SnakeView.PAUSE);
+        return true;
+    }
 }
