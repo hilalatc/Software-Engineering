@@ -104,7 +104,7 @@
       <file leaf-file-name="MSnake.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="226" column="0" selection-start="7917" selection-end="7917" vertical-scroll-proportion="0.9413793">
+            <state line="268" column="5" selection-start="9597" selection-end="9597" vertical-scroll-proportion="0.9413793">
               <folding />
             </state>
           </provider>
@@ -722,7 +722,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="226" column="0" selection-start="7917" selection-end="7917" vertical-scroll-proportion="0.9413793">
+        <state line="268" column="5" selection-start="9597" selection-end="9597" vertical-scroll-proportion="0.9413793">
           <folding />
         </state>
       </provider>

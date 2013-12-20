@@ -1,6 +1,7 @@
 package com.example.Snake;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -224,5 +225,46 @@ public class MSnake extends Activity {
         setCorrectButtons();
 //       mSnakeView.setMode(SnakeView.READY); ! hacer tras la llamada
     }
+    @Override
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        switch(id) {
+            case DIALOG_SETTINGS_ID:
+                if (mSnakeView.mUseWalls)
+                    smsrg1.check(R.id.smsrg1r0);
+                else
+                    smsrg1.check(R.id.smsrg1r1);
+                if (mSnakeView.mFast)
+                    smsrg2.check(R.id.smsrg2r1);
+                else
+                    smsrg2.check(R.id.smsrg2r0);
+                if (mSnakeView.mBoardSize == SnakeView.BS_BIG)
+                    smsrg3.check(R.id.smsrg3r0);
+                else if (mSnakeView.mBoardSize == SnakeView.BS_NORMAL)
+                    smsrg3.check(R.id.smsrg3r1);
+                else
+                    smsrg3.check(R.id.smsrg3r2);
+                if (mSnakeView.inputMode == SnakeView.INPUT_MODE_4K)
+                    smsrg4.check(R.id.smsrg4r0);
+                else if (mSnakeView.inputMode == SnakeView.INPUT_MODE_2K)
+                    smsrg4.check(R.id.smsrg4r1);
+                else
+                    smsrg4.check(R.id.smsrg4r2);
+                break;
+            case DIALOG_RECORDS_ID:
+                TextView mTView = (TextView) dialog.findViewById(R.id.records_layout_text);
+                mTView.setText(mSnakeView.getRecordsText());
+                break;
+        }
+    }
 
+    @Override
+    public void onBackPressed() {
+        if (mSnakeView.getMode() == SnakeView.RUNNING) {
+            mSnakeView.setMode(SnakeView.PAUSE);
+            showDialog(DIALOG_EXIT_ID);
+        } else if (mSnakeView.getMode() == SnakeView.PAUSE) {
+            showDialog(DIALOG_EXIT_ID);
+        } else
+            finish();
+    }
 }
