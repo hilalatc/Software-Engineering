@@ -3,14 +3,17 @@ package com.example.Snake;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created with IntelliJ IDEA.
@@ -175,4 +178,51 @@ public class MSnake extends Activity {
             mSnakeView.setMode(SnakeView.PAUSE);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+                if (mSnakeView.getMode() == SnakeView.PAUSE)
+                    showDialog(DIALOG_WARMSETTINGS_ID);
+                else
+                    showDialog(DIALOG_SETTINGS_ID);
+                return true;
+            case R.id.menu_about:
+                showDialog(DIALOG_ABOUT_ID);
+                return true;
+            case R.id.menu_records:
+                showDialog(DIALOG_RECORDS_ID);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    void changeInputMode(int mode) {
+        CharSequence str = "";
+        Resources res = getResources();
+        int oldMode = mSnakeView.inputMode;
+
+        if (mode == SnakeView.INPUT_MODE_2K) {
+            mSnakeView.inputMode = SnakeView.INPUT_MODE_2K;
+            str = res.getText(R.string.toast_input2k);
+            if (oldMode == SnakeView.INPUT_MODE_OG)
+                mSnakeView.firstTime = true;
+        } else if (mode == SnakeView.INPUT_MODE_OG) {
+            mSnakeView.inputMode = SnakeView.INPUT_MODE_OG;
+            str = res.getText(R.string.toast_inputog);
+            if (oldMode != SnakeView.INPUT_MODE_OG)
+                mSnakeView.firstTime = true;
+        } else {
+            mSnakeView.inputMode = SnakeView.INPUT_MODE_4K;
+            str = res.getText(R.string.toast_input4k);
+            if (oldMode == SnakeView.INPUT_MODE_OG)
+                mSnakeView.firstTime = true;
+        }
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+        setCorrectButtons();
+//       mSnakeView.setMode(SnakeView.READY); ! hacer tras la llamada
+    }
+
 }

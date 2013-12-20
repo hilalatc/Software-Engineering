@@ -104,7 +104,7 @@
       <file leaf-file-name="MSnake.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="176" column="5" selection-start="6022" selection-end="6022" vertical-scroll-proportion="0.9413793">
+            <state line="226" column="0" selection-start="7917" selection-end="7917" vertical-scroll-proportion="0.9413793">
               <folding />
             </state>
           </provider>
@@ -247,8 +247,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -319,6 +317,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -335,8 +335,8 @@
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -380,19 +380,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -419,6 +406,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -717,14 +717,12 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/ig3dd3s7.tmp/Girisyap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="0" selection-start="4473" selection-end="5087" vertical-scroll-proportion="0.029982364">
-          <folding />
-        </state>
+        <state line="125" column="0" selection-start="4473" selection-end="5087" vertical-scroll-proportion="0.029982364" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="5" selection-start="6022" selection-end="6022" vertical-scroll-proportion="0.9413793">
+        <state line="226" column="0" selection-start="7917" selection-end="7917" vertical-scroll-proportion="0.9413793">
           <folding />
         </state>
       </provider>
