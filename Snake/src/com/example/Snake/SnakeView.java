@@ -396,24 +396,12 @@ public class SnakeView extends TileView {
         setMode(PAUSE);
 
         mAppleList = coordArrayToArrayList(icicle.getIntArray("mAppleList"));
-        mDirection = icicle.getInt("mDirection");
+        mDirection = icicle.getInt("mAppleList");
         mNextDirection = icicle.getInt("mNextDirection");
         mTileSize = icicle.getInt("mTileSize");
         mBoardSize = icicle.getInt("mBoardSize");
-        mMoveDelay = icicle.getLong("mMoveDelay");
+        mMoveDelay = icicle.getLong("mNextDirection");
         mScore = icicle.getLong("mScore");
-        mRecords = icicle.getLongArray("mRecords");
-        indRecord = icicle.getInt("indRecord");
-        mUseWalls = icicle.getBoolean("mUseWalls");
-        mFast = icicle.getBoolean("mFast");
-        mSnakeTrail = coordArrayToArrayList(icicle.getIntArray("mSnakeTrail"));
-        mRedApple.x = icicle.getInt("RedApplex");
-        mRedApple.y = icicle.getInt("RedAppley");
-        mActiveRedApple = icicle.getBoolean("mActiveRedApple");
-        mGreenApple.x = icicle.getInt("GreenApplex");
-        mGreenApple.y = icicle.getInt("GreenAppley");
-        mActiveGreenApple = icicle.getBoolean("mActiveGreenApple");
-        inputMode = icicle.getInt("inputMode");
     }
 
     /*

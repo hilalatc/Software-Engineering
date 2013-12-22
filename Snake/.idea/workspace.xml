@@ -36,7 +36,7 @@
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/res/layout/settings_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179387656" ignored="false" />
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/res/layout/snake_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179409140" ignored="false" />
     <file path="/snake_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179456121" ignored="false" />
-    <file path="/SnakeView.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179659418" ignored="false" />
+    <file path="/SnakeView.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387739484766" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/Manifest.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137646679" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/R.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137646679" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/BuildConfig.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137945101" ignored="false" />
@@ -101,12 +101,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MSnake.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MSnake.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="268" column="5" selection-start="9597" selection-end="9597" vertical-scroll-proportion="0.9413793">
+            <state line="268" column="5" selection-start="9597" selection-end="9597" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="402" column="51" selection-start="14515" selection-end="14515" vertical-scroll-proportion="0.3637931">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about_layout.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/about_layout.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="33" selection-start="696" selection-end="696" vertical-scroll-proportion="-5.78">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news_layout.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/news_layout.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="22" selection-start="0" selection-end="652" vertical-scroll-proportion="-5.44">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -131,36 +166,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="records_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/records_layout.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="16" selection-start="0" selection-end="763" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="snake_layout.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/snake_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="63" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.0">
+            <state line="49" column="63" selection-start="2089" selection-end="2089" vertical-scroll-proportion="-0.34">
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="snake_menu.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/menu/snake_menu.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1401" selection-end="1401" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -208,8 +222,8 @@
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/values-es/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/example/Snake/TileView.java" />
-        <option value="$PROJECT_DIR$/src/com/example/Snake/SnakeView.java" />
         <option value="$PROJECT_DIR$/src/com/example/Snake/MSnake.java" />
+        <option value="$PROJECT_DIR$/src/com/example/Snake/SnakeView.java" />
       </list>
     </option>
   </component>
@@ -247,6 +261,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,7 +332,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -327,7 +341,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/MSnake20/Snake" />
     <property name="AndroidLayoutSelectedEditor" value="text-editor" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -512,6 +526,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -534,7 +549,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674772" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -603,41 +617,17 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="0" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="0" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/.directory">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/about_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="696" selection-end="696" vertical-scroll-proportion="-5.78">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/news_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="0" selection-end="652" vertical-scroll-proportion="-5.44">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/records_layout.xml">
@@ -678,23 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="67" selection-start="3691" selection-end="3691" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/snake_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="63" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/settings_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="19" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0">
@@ -705,25 +678,61 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="990" column="0" selection-start="31867" selection-end="31867" vertical-scroll-proportion="29.01724">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#13824#13836#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/ig3dd3s7.tmp/Girisyap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="125" column="0" selection-start="4473" selection-end="5087" vertical-scroll-proportion="0.029982364" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="67" selection-start="3691" selection-end="3691" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="268" column="5" selection-start="9597" selection-end="9597" vertical-scroll-proportion="0.9413793">
+        <state line="268" column="5" selection-start="9597" selection-end="9597" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/about_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="33" selection-start="696" selection-end="696" vertical-scroll-proportion="-5.78">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/news_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="22" selection-start="0" selection-end="652" vertical-scroll-proportion="-5.44">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/snake_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="63" selection-start="2089" selection-end="2089" vertical-scroll-proportion="-0.34">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="402" column="51" selection-start="14515" selection-end="14515" vertical-scroll-proportion="0.3637931">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
