@@ -36,7 +36,7 @@
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/res/layout/settings_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179387656" ignored="false" />
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/res/layout/snake_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179409140" ignored="false" />
     <file path="/snake_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179456121" ignored="false" />
-    <file path="/SnakeView.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387739484766" ignored="false" />
+    <file path="/SnakeView.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387739760254" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/Manifest.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137646679" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/R.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137646679" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/BuildConfig.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137945101" ignored="false" />
@@ -113,7 +113,7 @@
       <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="402" column="51" selection-start="14515" selection-end="14515" vertical-scroll-proportion="0.3637931">
+            <state line="150" column="23" selection-start="4522" selection-end="4522" vertical-scroll-proportion="0.51724136">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -729,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="402" column="51" selection-start="14515" selection-end="14515" vertical-scroll-proportion="0.3637931">
+        <state line="150" column="23" selection-start="4522" selection-end="4522" vertical-scroll-proportion="0.51724136">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

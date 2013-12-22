@@ -101,12 +101,11 @@ public class SnakeView extends TileView {
 
     public boolean mFast = false;
 
-//    private ArrayList<Coordinate> mSnakeTrail = new ArrayList<Coordinate>();
-//    private ArrayList<Coordinate> mAppleList = new ArrayList<Coordinate>();
-//    private Coordinate mRedApple = new Coordinate(1,1);
-//    private boolean mActiveRedApple = false;
-//    private Coordinate mGreenApple = new Coordinate(1,1);
-//    private boolean mActiveGreenApple = false;
+    private boolean applesize = false;
+    private boolean snake = false;
+    private boolean snakeview = false;
+
+
 
     private static final Random RNG = new Random();
 
@@ -147,6 +146,9 @@ public class SnakeView extends TileView {
             tileSizes[0] = 6;
             tileSizes[1] = 12;
             tileSizes[2] = 24;
+            tileSizes[3] = 24;
+            tileSizes[4] = 24;
+            tileSizes[5] = 24;
         }
     }
 
