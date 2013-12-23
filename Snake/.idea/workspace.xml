@@ -104,7 +104,7 @@
       <file leaf-file-name="MSnake.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="0" selection-start="5355" selection-end="5947" vertical-scroll-proportion="0.0">
+            <state line="161" column="57" selection-start="5354" selection-end="5354" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,7 +113,7 @@
       <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="953" column="5" selection-start="30737" selection-end="30737" vertical-scroll-proportion="0.9413793">
+            <state line="966" column="5" selection-start="30881" selection-end="30881" vertical-scroll-proportion="0.9413793">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,7 +148,7 @@
       <file leaf-file-name="TileView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="67" selection-start="3691" selection-end="3691" vertical-scroll-proportion="0.0">
+            <state line="126" column="0" selection-start="3496" selection-end="4200" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -681,13 +681,6 @@
         <state line="125" column="0" selection-start="4473" selection-end="5087" vertical-scroll-proportion="0.029982364" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="67" selection-start="3691" selection-end="3691" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/about_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -720,14 +713,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="0" selection-start="5355" selection-end="5947" vertical-scroll-proportion="0.0">
+        <state line="161" column="57" selection-start="5354" selection-end="5354" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="0" selection-start="3496" selection-end="4200" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="953" column="5" selection-start="30737" selection-end="30737" vertical-scroll-proportion="0.9413793">
+        <state line="966" column="5" selection-start="30881" selection-end="30881" vertical-scroll-proportion="0.9413793">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

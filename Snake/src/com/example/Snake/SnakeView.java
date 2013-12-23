@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -938,6 +939,31 @@ public class SnakeView extends TileView {
             showDialog(DIALOG_EXIT_ID);
         } else
             finish();
+    }
+
+    public void setTile(int tileindex, int x, int y) {
+        mTileGrid[x][y] = tileindex;
+    }
+
+    public int getTileIndex(int x, int y) {
+        return mTileGrid[x][y];
+    }
+
+    @Override
+    public void onDraw(Canvas canvas) {
+//    	Log.d(TAG, "onDraw");
+        super.onDraw(canvas);
+        for (int x = 0; x < mXTileCount; x += 1) {
+            for (int y = 0; y < mYTileCount; y += 1) {
+                if (mTileGrid[x][y] > 0) {
+                    canvas.drawBitmap(mTileArray[mTileGrid[x][y]],
+                            mXOffset + x * mTileSize,
+                            mYOffset + y * mTileSize,
+                            mPaint);
+                }
+            }
+        }
+
     }
 
     @Override
