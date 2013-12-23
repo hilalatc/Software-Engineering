@@ -9,9 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -929,6 +927,30 @@ public class SnakeView extends TileView {
             }
             index++;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mSnakeView.getMode() == SnakeView.RUNNING) {
+            mSnakeView.setMode(SnakeView.PAUSE);
+            showDialog(DIALOG_EXIT_ID);
+        } else if (mSnakeView.getMode() == SnakeView.PAUSE) {
+            showDialog(DIALOG_EXIT_ID);
+        } else
+            finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.snake_menu, menu);
+        menu.findItem(R.id.menu_about).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_info_details));
+        menu.findItem(R.id.menu_records).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_view));
+        menu.findItem(R.id.menu_settings).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_preferences));
+        return true;
     }
 
     /**
