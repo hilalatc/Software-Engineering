@@ -979,6 +979,26 @@ public class SnakeView extends TileView {
         return true;
     }
 
+    @Override
+    public boolean onCreateMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.snake_menu, menu);
+        menu.findItem(R.id.menu_about).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_info_details));
+        menu.findItem(R.id.menu_records).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_view));
+        menu.findItem(R.id.menu_settings).setIcon(
+                getResources().getDrawable(android.R.drawable.ic_menu_preferences));
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (mSnakeView.getMode() == SnakeView.RUNNING)
+            mSnakeView.setMode(SnakeView.PAUSE);
+        return true;
+    }
+
     /**
      *
      */

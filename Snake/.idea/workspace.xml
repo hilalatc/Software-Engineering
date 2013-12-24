@@ -36,7 +36,7 @@
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/res/layout/settings_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179387656" ignored="false" />
     <file path="$USER_HOME$/Desktop/MSnake20/Snake/res/layout/snake_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179409140" ignored="false" />
     <file path="/snake_layout.xml" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1386179456121" ignored="false" />
-    <file path="/SnakeView.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387739760254" ignored="false" />
+    <file path="/SnakeView.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387918920967" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/Manifest.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137646679" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/R.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137646679" ignored="false" />
     <file path="$USER_HOME$/Desktop/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/AndroidConnectingToPhpMySQL/gen/com/example/androidhive/BuildConfig.java" changelist="3bb65273-91af-4236-90cc-3ed0781a7ca4" time="1387137945101" ignored="false" />
@@ -55,6 +55,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -91,7 +92,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -104,7 +104,7 @@
       <file leaf-file-name="MSnake.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="57" selection-start="5354" selection-end="5354" vertical-scroll-proportion="0.0">
+            <state line="162" column="0" selection-start="5355" selection-end="6146" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,7 +113,7 @@
       <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="966" column="5" selection-start="30881" selection-end="30881" vertical-scroll-proportion="0.9413793">
+            <state line="982" column="27" selection-start="31518" selection-end="31518" vertical-scroll-proportion="0.44310346">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -349,8 +349,8 @@
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -394,19 +394,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -433,6 +420,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -521,7 +521,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -548,8 +548,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674772" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -711,13 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="57" selection-start="5354" selection-end="5354" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/TileView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="0" selection-start="3496" selection-end="4200" vertical-scroll-proportion="0.0">
@@ -725,9 +718,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="0" selection-start="5355" selection-end="6146" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="966" column="5" selection-start="30881" selection-end="30881" vertical-scroll-proportion="0.9413793">
+        <state line="982" column="27" selection-start="31518" selection-end="31518" vertical-scroll-proportion="0.44310346">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
