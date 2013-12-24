@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -977,6 +979,27 @@ public class SnakeView extends TileView {
         menu.findItem(R.id.menu_settings).setIcon(
                 getResources().getDrawable(android.R.drawable.ic_menu_preferences));
         return true;
+    }
+
+    public void loadBitmapTile(int key, Drawable tile) {
+        Bitmap bitmap = Bitmap.createBitmap(mTileSize, mTileSize, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        tile.setBounds(0, 0, mTileSize, mTileSize);
+        tile.draw(canvas);
+
+        mTileArray[key] = bitmap;
+    }
+
+    /**
+     * Resets all tiles to 0 (empty)
+     *
+     */
+    public void clearTiles() {
+        for (int x = 0; x < mXTileCount; x++) {
+            for (int y = 0; y < mYTileCount; y++) {
+                setTile(0, x, y);
+            }
+        }
     }
 
     @Override
