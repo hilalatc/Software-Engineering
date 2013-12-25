@@ -1022,6 +1022,28 @@ public class SnakeView extends TileView {
         return true;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        //Store the game state
+        outState.putBundle(ICICLE_KEY, mSnakeView.saveState());
+    }
+
+    public void bIzquierda(View view) {
+        mSnakeView.bIzquierda();
+    }
+
+    public void bArriba(View view) {
+        mSnakeView.bArriba();
+    }
+
+    public void bAbajo(View view) {
+        mSnakeView.bAbajo();
+    }
+
+    public void bDerecha(View view) {
+        mSnakeView.bDerecha();
+    }
+
     /**
      *
      */
