@@ -104,7 +104,7 @@
       <file leaf-file-name="MSnake.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="0" selection-start="4883" selection-end="5354" vertical-scroll-proportion="0.0">
+            <state line="115" column="0" selection-start="4183" selection-end="4880" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,7 +113,7 @@
       <file leaf-file-name="SnakeView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1044" column="5" selection-start="33379" selection-end="33379" vertical-scroll-proportion="0.9413793">
+            <state line="1047" column="5" selection-start="33605" selection-end="33605" vertical-scroll-proportion="0.9413793">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -718,14 +718,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/MSnake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="0" selection-start="4883" selection-end="5354" vertical-scroll-proportion="0.0">
+        <state line="115" column="0" selection-start="4183" selection-end="4880" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Snake/SnakeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1044" column="5" selection-start="33379" selection-end="33379" vertical-scroll-proportion="0.9413793">
+        <state line="1047" column="5" selection-start="33605" selection-end="33605" vertical-scroll-proportion="0.9413793">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

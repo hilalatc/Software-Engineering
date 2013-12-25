@@ -1023,6 +1023,31 @@ public class SnakeView extends TileView {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Vibrator mvibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        mSnakeView.setVibrator(mvibrator);
+//    	Log.d(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Pause the game along with the activity if RUNNING!!
+        if (mSnakeView.getMode() == SnakeView.RUNNING) {
+            mSnakeView.setMode(SnakeView.PAUSE);
+        }
+//    	Log.d(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences settings = getPreferences(0);
+        mSnakeView.savePreferences(settings);
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         //Store the game state
         outState.putBundle(ICICLE_KEY, mSnakeView.saveState());
