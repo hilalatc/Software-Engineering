@@ -13,6 +13,7 @@ import android.os.Message;
 import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.view.*;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -1067,6 +1068,40 @@ public class SnakeView extends TileView {
 
     public void bDerecha(View view) {
         mSnakeView.bDerecha();
+    }
+
+    protected void setCorrectButtons() {
+        Button mButton[] = new Button[6];
+
+        mButton[0] = (Button) findViewById(R.id.button0);
+        mButton[1] = (Button) findViewById(R.id.button1);
+        mButton[2] = (Button) findViewById(R.id.button2);
+        mButton[3] = (Button) findViewById(R.id.button3);
+        mButton[4] = (Button) findViewById(R.id.button4);
+        mButton[5] = (Button) findViewById(R.id.button5);
+
+        if (mSnakeView.inputMode == SnakeView.INPUT_MODE_2K) {
+            mButton[0].setVisibility(View.VISIBLE);
+            mButton[1].setVisibility(View.GONE);
+            mButton[2].setVisibility(View.GONE);
+            mButton[3].setVisibility(View.GONE);
+            mButton[4].setVisibility(View.GONE);
+            mButton[5].setVisibility(View.VISIBLE);
+        } else if (mSnakeView.inputMode == SnakeView.INPUT_MODE_4K) {
+            mButton[0].setVisibility(View.GONE);
+            mButton[1].setVisibility(View.VISIBLE);
+            mButton[2].setVisibility(View.VISIBLE);
+            mButton[3].setVisibility(View.VISIBLE);
+            mButton[4].setVisibility(View.VISIBLE);
+            mButton[5].setVisibility(View.GONE);
+        } else {
+            mButton[0].setVisibility(View.GONE);
+            mButton[1].setVisibility(View.GONE);
+            mButton[2].setVisibility(View.GONE);
+            mButton[3].setVisibility(View.GONE);
+            mButton[4].setVisibility(View.GONE);
+            mButton[5].setVisibility(View.GONE);
+        }
     }
 
     /**
