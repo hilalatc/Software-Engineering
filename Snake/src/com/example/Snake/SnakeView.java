@@ -1104,6 +1104,38 @@ public class SnakeView extends TileView {
         }
     }
 
+    public void internalRecalcTileGrid(int w, int h) {
+        mXTileCount = (int) Math.floor(w / mTileSize);
+        mYTileCount = (int) Math.floor(h / mTileSize);
+
+        mXOffset = ((getWidth() - (mTileSize * mXTileCount)) / 2);
+        mYOffset = ((getHeight() - (mTileSize * mYTileCount)) / 2);
+
+        mTileGrid = new int[mXTileCount][mYTileCount];
+        clearTiles();
+    }
+
+    @Override
+    protected void onSizChanged(int w, int h, int oldw, int oldh) {
+//    	Log.d(TAG, "onSizeChanged");
+        internalRecalcTileGrid(w, h);
+    }
+
+    public void recalcTileGrid() {
+        internalRecalcTileGrid(getWidth(), getHeight());
+    }
+
+    /**
+     * Rests the internal array of Bitmaps used for drawing tiles, and
+     * sets the maximum index of tiles to be inserted
+     *
+     * @param tilecount
+     */
+
+    public void resetBitmapTiles(int tilecount) {
+        mTileArray = new Bitmap[tilecount];
+    }
+
     /**
      *
      */
