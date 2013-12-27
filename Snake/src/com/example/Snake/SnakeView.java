@@ -123,6 +123,34 @@ public class SnakeView extends TileView {
 
     private RefreshHandler mRedrawHandler = new RefreshHandler();
 
+    mSnakeView = (SnakeView) findViewById(R.id.snake);
+    mSnakeView.setTextView((TextView) findViewById(R.id.text));
+    mSnakeView.setScoreView((TextView) findViewById(R.id.textscore));
+    mSnakeView.setRecordView((TextView) findViewById(R.id.textrecord));
+
+    int dHeight = getWindowManager().getDefaultDisplay().getHeight();
+    int dWidth = getWindowManager().getDefaultDisplay().getWidth();
+    mSnakeView.setTileSizes(dWidth, dHeight);
+
+    // Restore preferences
+    SharedPreferences settings = getPreferences(0);
+    mSnakeView.restorePreferences(settings);
+    setCorrectButtons();
+    if (savedInstanceState == null) {
+        // We were just launched -- set up a new game
+        mSnakeView.setMode(SnakeView.READY);
+    } else {
+        // We are being restored
+        Bundle map = savedInstanceState.getBundle(ICICLE_KEY);
+        if (map != null) {
+            mSnakeView.restoreState(map);
+        } else {
+            mSnakeView.setMode(SnakeView.READY);
+        }
+    }
+    if (mSnakeView.showNews20) showDialog(DIALOG_NEWS_ID);
+//    	Log.d(TAG, "onCreate end");
+
     class RefreshHandler extends Handler {
 
         @Override
