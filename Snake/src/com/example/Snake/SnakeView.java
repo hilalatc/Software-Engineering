@@ -29,6 +29,14 @@ import java.util.Random;
  */
 public class SnakeView extends TileView {
 
+    protected static int mTileSize = 16;
+
+    protected static int mXTileCount;
+    protected static int mYTileCount;
+
+    private static int mXOffset;
+    private static int mYOffset;
+
     private int mMode = READY;
     public static final int PAUSE = 0;
     public static final int READY = 1;
