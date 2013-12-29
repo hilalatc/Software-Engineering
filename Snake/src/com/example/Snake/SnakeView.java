@@ -29,20 +29,22 @@ import java.util.Random;
  */
 public class SnakeView extends TileView {
 
-    protected static int mTileSize = 16;
+//    private static final String TAG = "MSnake";
 
-    protected static int mXTileCount;
-    protected static int mYTileCount;
-
-    private static int mXOffset;
-    private static int mYOffset;
-
+    /**
+     * Current mode of application: READY to run, RUNNING, or you have already
+     * lost. static final ints are used instead of an enum for performance
+     * reasons.
+     */
     private int mMode = READY;
     public static final int PAUSE = 0;
     public static final int READY = 1;
     public static final int RUNNING = 2;
     public static final int LOSE = 3;
 
+    /**
+     * Current direction the snake is headed.
+     */
     private int mDirection = NORTH;
     private int mNextDirection = NORTH;
     private static final int NORTH = 1;
@@ -56,6 +58,9 @@ public class SnakeView extends TileView {
     public static final int BS_SMALL = 2;
     private int tileSizes[] = {8,16,32};
 
+    /**
+     * Labels for the drawables that will be loaded into the TileView class
+     */
     private static final int BODY_TILE = 1;
     private static final int FOOD_TILE = 2;
     private static final int GREENFOOD_TILE = 3;
@@ -69,6 +74,11 @@ public class SnakeView extends TileView {
     private boolean mDrawHead2 = false;
     private boolean mDrawHeadEat = false;
 
+    /**
+     * mScore: used to track the number of apples captured mMoveDelay: number of
+     * milliseconds between snake movements. This will decrease as apples are
+     * captured.
+     */
     private long mScore = 0;
     private long mMoveDelay = 500;
     public static final int RECORD_BIG_WON = 0;
@@ -97,65 +107,65 @@ public class SnakeView extends TileView {
     public static final int INPUT_MODE_OG = 2;
     public int inputMode = INPUT_MODE_OG;
 
+    /**
+     * mLastMove: tracks the absolute time when the snake last moved, and is used
+     * to determine if a move should be made based on mMoveDelay.
+     */
     private long mLastMove;
 
-
+    /**
+     * mStatusText: text shows to the user in some run states
+     */
     private TextView mStatusText;
 
-
+    /**
+     * mScoreText: text shows score and record
+     */
     private TextView mScoreText;
     private TextView mRecordText;
 
-
+    /**
+     * mUseWalls: Use walls or not
+     */
     public boolean mUseWalls = true;
 
+    /**
+     * mFast: Fast or Slow
+     */
     public boolean mFast = false;
 
-    private boolean applesize = false;
-    private boolean snake = false;
-    private boolean snakeview = false;
+    /**
+     * mSnakeTrail: a list of Coordinates that make up the snake's body
+     * mAppleList: the secret location of the juicy apples the snake craves.
+     */
+    private ArrayList<Coordinate> mSnakeTrail = new ArrayList<Coordinate>();
+    private ArrayList<Coordinate> mAppleList = new ArrayList<Coordinate>();
+    private Coordinate mRedApple = new Coordinate(1,1);
+    private boolean mActiveRedApple = false;
+    private Coordinate mGreenApple = new Coordinate(1,1);
+    private boolean mActiveGreenApple = false;
 
-
-
+    /**
+     * Everyone needs a little randomness in their life
+     */
     private static final Random RNG = new Random();
 
+    /**
+     */
     private Vibrator mVibrator;
 
+    /**
+     * Create a simple handler that we can use to cause animation to happen.  We
+     * set ourselves as a target and we can use the sleep()
+     * function to cause an update/invalidate to occur at a later date.
+     */
     private RefreshHandler mRedrawHandler = new RefreshHandler();
-
-    mSnakeView = (SnakeView) findViewById(R.id.snake);
-    mSnakeView.setTextView((TextView) findViewById(R.id.text));
-    mSnakeView.setScoreView((TextView) findViewById(R.id.textscore));
-    mSnakeView.setRecordView((TextView) findViewById(R.id.textrecord));
-
-    int dHeight = getWindowManager().getDefaultDisplay().getHeight();
-    int dWidth = getWindowManager().getDefaultDisplay().getWidth();
-    mSnakeView.setTileSizes(dWidth, dHeight);
-
-    // Restore preferences
-    SharedPreferences settings = getPreferences(0);
-    mSnakeView.restorePreferences(settings);
-    setCorrectButtons();
-    if (savedInstanceState == null) {
-        // We were just launched -- set up a new game
-        mSnakeView.setMode(SnakeView.READY);
-    } else {
-        // We are being restored
-        Bundle map = savedInstanceState.getBundle(ICICLE_KEY);
-        if (map != null) {
-            mSnakeView.restoreState(map);
-        } else {
-            mSnakeView.setMode(SnakeView.READY);
-        }
-    }
-    if (mSnakeView.showNews20) showDialog(DIALOG_NEWS_ID);
-//    	Log.d(TAG, "onCreate end");
 
     class RefreshHandler extends Handler {
 
         @Override
         public void handleMessage(Message msg) {
-           // SnakeView.this.update();
+            SnakeView.this.update();
             SnakeView.this.invalidate();
         }
 
@@ -165,7 +175,12 @@ public class SnakeView extends TileView {
         }
     };
 
-
+    /**
+     * Constructs a SnakeView based on inflation from XML
+     *
+     * @param context
+     * @param attrs
+     */
     public SnakeView(Context context, AttributeSet attrs) {
         super(context, attrs);
         for (int i=0; i<12; i++) mRecords[i] = 0;
@@ -184,9 +199,6 @@ public class SnakeView extends TileView {
             tileSizes[0] = 6;
             tileSizes[1] = 12;
             tileSizes[2] = 24;
-            tileSizes[3] = 24;
-            tileSizes[4] = 24;
-            tileSizes[5] = 24;
         }
     }
 
@@ -209,24 +221,24 @@ public class SnakeView extends TileView {
     }
 
     public void initNewGame() {
-//        mSnakeTrail.clear();
-//        mAppleList.clear();
-//
-//        // For now we're just going to load up a short default eastbound snake
-//        // that's just turned north
-//        mSnakeTrail.add(new Coordinate(7, 7));
-//        mSnakeTrail.add(new Coordinate(6, 7));
-//        mSnakeTrail.add(new Coordinate(5, 7));
-//        mSnakeTrail.add(new Coordinate(4, 7));
-//        mSnakeTrail.add(new Coordinate(3, 7));
-//        mSnakeTrail.add(new Coordinate(2, 7));
-//        mNextDirection = NORTH;
-//
-//        // Two apples to start with
-//        mActiveGreenApple = false;
-//        mActiveRedApple = false;
-//        addRandomApple();
-//        addRandomApple();
+        mSnakeTrail.clear();
+        mAppleList.clear();
+
+        // For now we're just going to load up a short default eastbound snake
+        // that's just turned north
+        mSnakeTrail.add(new Coordinate(7, 7));
+        mSnakeTrail.add(new Coordinate(6, 7));
+        mSnakeTrail.add(new Coordinate(5, 7));
+        mSnakeTrail.add(new Coordinate(4, 7));
+        mSnakeTrail.add(new Coordinate(3, 7));
+        mSnakeTrail.add(new Coordinate(2, 7));
+        mNextDirection = NORTH;
+
+        // Two apples to start with
+        mActiveGreenApple = false;
+        mActiveRedApple = false;
+        addRandomApple();
+        addRandomApple();
 
         mMoveDelay = (mFast) ? 250 : 500;
         mScore = 0;
@@ -303,7 +315,6 @@ public class SnakeView extends TileView {
         initSnakeView();
         Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
     }
-
 
     public void changeWalls(){
         Resources res = getContext().getResources();
@@ -384,6 +395,14 @@ public class SnakeView extends TileView {
         setRecordIndex();
     }
 
+    /**
+     * Given a ArrayList of coordinates, we need to flatten them into an array of
+     * ints before we can stuff them into a map for flattening and storage.
+     *
+     * @param cvec : a ArrayList of Coordinate objects
+     * @return : a simple array containing the x/y values of the coordinates
+     * as [x1,y1,x2,y2,x3,y3...]
+     */
     private int[] coordArrayListToArray(ArrayList<Coordinate> cvec) {
         int count = cvec.size();
         int[] rawArray = new int[count * 2];
@@ -395,6 +414,13 @@ public class SnakeView extends TileView {
         return rawArray;
     }
 
+    /**
+     * Save game state so that the user does not lose anything
+     * if the game process is killed while we are in the
+     * background.
+     *
+     * @return a Bundle with this view's state
+     */
     public Bundle saveState() {
         Bundle map = new Bundle();
 
@@ -421,6 +447,13 @@ public class SnakeView extends TileView {
         return map;
     }
 
+    /**
+     * Given a flattened array of ordinate pairs, we reconstitute them into a
+     * ArrayList of Coordinate objects
+     *
+     * @param rawArray : [x1,y1,x2,y2,...]
+     * @return a ArrayList of Coordinates
+     */
     private ArrayList<Coordinate> coordArrayToArrayList(int[] rawArray) {
         ArrayList<Coordinate> coordArrayList = new ArrayList<Coordinate>();
 
@@ -432,16 +465,33 @@ public class SnakeView extends TileView {
         return coordArrayList;
     }
 
+    /**
+     * Restore game state if our process is being relaunched
+     *
+     * @param icicle a Bundle containing the game state
+     */
     public void restoreState(Bundle icicle) {
         setMode(PAUSE);
 
         mAppleList = coordArrayToArrayList(icicle.getIntArray("mAppleList"));
-        mDirection = icicle.getInt("mAppleList");
+        mDirection = icicle.getInt("mDirection");
         mNextDirection = icicle.getInt("mNextDirection");
         mTileSize = icicle.getInt("mTileSize");
         mBoardSize = icicle.getInt("mBoardSize");
-        mMoveDelay = icicle.getLong("mNextDirection");
+        mMoveDelay = icicle.getLong("mMoveDelay");
         mScore = icicle.getLong("mScore");
+        mRecords = icicle.getLongArray("mRecords");
+        indRecord = icicle.getInt("indRecord");
+        mUseWalls = icicle.getBoolean("mUseWalls");
+        mFast = icicle.getBoolean("mFast");
+        mSnakeTrail = coordArrayToArrayList(icicle.getIntArray("mSnakeTrail"));
+        mRedApple.x = icicle.getInt("RedApplex");
+        mRedApple.y = icicle.getInt("RedAppley");
+        mActiveRedApple = icicle.getBoolean("mActiveRedApple");
+        mGreenApple.x = icicle.getInt("GreenApplex");
+        mGreenApple.y = icicle.getInt("GreenAppley");
+        mActiveGreenApple = icicle.getBoolean("mActiveGreenApple");
+        inputMode = icicle.getInt("inputMode");
     }
 
     /*
@@ -597,7 +647,6 @@ public class SnakeView extends TileView {
         }
     }
 
-
     public void bDerecha() {
         if (inputMode == INPUT_MODE_2K) {
             if (mDirection == EAST) mNextDirection = SOUTH;
@@ -707,7 +756,6 @@ public class SnakeView extends TileView {
      * truly excellent snake-player.
      *
      */
-
     private Coordinate findFreeCoordinate() {
         Coordinate newCoord = null;
         boolean found = false;
@@ -821,6 +869,13 @@ public class SnakeView extends TileView {
         }
     }
 
+    /**
+     * Figure out which way the snake is going, see if he's run into anything (the
+     * walls, himself, or an apple). If he's not going to die, we then add to the
+     * front and subtract from the rear in order to simulate motion. If we want to
+     * grow him, we don't subtract from the rear.
+     *
+     */
     private void updateSnake() {
         boolean growSnake = false;
         boolean mustAddRandomApple = false;
@@ -969,209 +1024,6 @@ public class SnakeView extends TileView {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        if (mSnakeView.getMode() == SnakeView.RUNNING) {
-            mSnakeView.setMode(SnakeView.PAUSE);
-            showDialog(DIALOG_EXIT_ID);
-        } else if (mSnakeView.getMode() == SnakeView.PAUSE) {
-            showDialog(DIALOG_EXIT_ID);
-        } else
-            finish();
-    }
-
-    public void setTile(int tileindex, int x, int y) {
-        mTileGrid[x][y] = tileindex;
-    }
-
-    public int getTileIndex(int x, int y) {
-        return mTileGrid[x][y];
-    }
-
-    @Override
-    public void onDraw(Canvas canvas) {
-//    	Log.d(TAG, "onDraw");
-        super.onDraw(canvas);
-        for (int x = 0; x < mXTileCount; x += 1) {
-            for (int y = 0; y < mYTileCount; y += 1) {
-                if (mTileGrid[x][y] > 0) {
-                    canvas.drawBitmap(mTileArray[mTileGrid[x][y]],
-                            mXOffset + x * mTileSize,
-                            mYOffset + y * mTileSize,
-                            mPaint);
-                }
-            }
-        }
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.snake_menu, menu);
-        menu.findItem(R.id.menu_about).setIcon(
-                getResources().getDrawable(android.R.drawable.ic_menu_info_details));
-        menu.findItem(R.id.menu_records).setIcon(
-                getResources().getDrawable(android.R.drawable.ic_menu_view));
-        menu.findItem(R.id.menu_settings).setIcon(
-                getResources().getDrawable(android.R.drawable.ic_menu_preferences));
-        return true;
-    }
-
-    public void loadBitmapTile(int key, Drawable tile) {
-        Bitmap bitmap = Bitmap.createBitmap(mTileSize, mTileSize, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        tile.setBounds(0, 0, mTileSize, mTileSize);
-        tile.draw(canvas);
-
-        mTileArray[key] = bitmap;
-    }
-
-    /**
-     * Resets all tiles to 0 (empty)
-     *
-     */
-    public void clearTiles() {
-        for (int x = 0; x < mXTileCount; x++) {
-            for (int y = 0; y < mYTileCount; y++) {
-                setTile(0, x, y);
-            }
-        }
-    }
-
-    @Override
-    public boolean onCreateMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.snake_menu, menu);
-        menu.findItem(R.id.menu_about).setIcon(
-                getResources().getDrawable(android.R.drawable.ic_menu_info_details));
-        menu.findItem(R.id.menu_records).setIcon(
-                getResources().getDrawable(android.R.drawable.ic_menu_view));
-        menu.findItem(R.id.menu_settings).setIcon(
-                getResources().getDrawable(android.R.drawable.ic_menu_preferences));
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        if (mSnakeView.getMode() == SnakeView.RUNNING)
-            mSnakeView.setMode(SnakeView.PAUSE);
-        return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Vibrator mvibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        mSnakeView.setVibrator(mvibrator);
-//    	Log.d(TAG, "onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Pause the game along with the activity if RUNNING!!
-        if (mSnakeView.getMode() == SnakeView.RUNNING) {
-            mSnakeView.setMode(SnakeView.PAUSE);
-        }
-//    	Log.d(TAG, "onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        SharedPreferences settings = getPreferences(0);
-        mSnakeView.savePreferences(settings);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        //Store the game state
-        outState.putBundle(ICICLE_KEY, mSnakeView.saveState());
-    }
-
-    public void bIzquierda(View view) {
-        mSnakeView.bIzquierda();
-    }
-
-    public void bArriba(View view) {
-        mSnakeView.bArriba();
-    }
-
-    public void bAbajo(View view) {
-        mSnakeView.bAbajo();
-    }
-
-    public void bDerecha(View view) {
-        mSnakeView.bDerecha();
-    }
-
-    protected void setCorrectButtons() {
-        Button mButton[] = new Button[6];
-
-        mButton[0] = (Button) findViewById(R.id.button0);
-        mButton[1] = (Button) findViewById(R.id.button1);
-        mButton[2] = (Button) findViewById(R.id.button2);
-        mButton[3] = (Button) findViewById(R.id.button3);
-        mButton[4] = (Button) findViewById(R.id.button4);
-        mButton[5] = (Button) findViewById(R.id.button5);
-
-        if (mSnakeView.inputMode == SnakeView.INPUT_MODE_2K) {
-            mButton[0].setVisibility(View.VISIBLE);
-            mButton[1].setVisibility(View.GONE);
-            mButton[2].setVisibility(View.GONE);
-            mButton[3].setVisibility(View.GONE);
-            mButton[4].setVisibility(View.GONE);
-            mButton[5].setVisibility(View.VISIBLE);
-        } else if (mSnakeView.inputMode == SnakeView.INPUT_MODE_4K) {
-            mButton[0].setVisibility(View.GONE);
-            mButton[1].setVisibility(View.VISIBLE);
-            mButton[2].setVisibility(View.VISIBLE);
-            mButton[3].setVisibility(View.VISIBLE);
-            mButton[4].setVisibility(View.VISIBLE);
-            mButton[5].setVisibility(View.GONE);
-        } else {
-            mButton[0].setVisibility(View.GONE);
-            mButton[1].setVisibility(View.GONE);
-            mButton[2].setVisibility(View.GONE);
-            mButton[3].setVisibility(View.GONE);
-            mButton[4].setVisibility(View.GONE);
-            mButton[5].setVisibility(View.GONE);
-        }
-    }
-
-    public void internalRecalcTileGrid(int w, int h) {
-        mXTileCount = (int) Math.floor(w / mTileSize);
-        mYTileCount = (int) Math.floor(h / mTileSize);
-
-        mXOffset = ((getWidth() - (mTileSize * mXTileCount)) / 2);
-        mYOffset = ((getHeight() - (mTileSize * mYTileCount)) / 2);
-
-        mTileGrid = new int[mXTileCount][mYTileCount];
-        clearTiles();
-    }
-
-    @Override
-    protected void onSizChanged(int w, int h, int oldw, int oldh) {
-//    	Log.d(TAG, "onSizeChanged");
-        internalRecalcTileGrid(w, h);
-    }
-
-    public void recalcTileGrid() {
-        internalRecalcTileGrid(getWidth(), getHeight());
-    }
-
-    /**
-     * Rests the internal array of Bitmaps used for drawing tiles, and
-     * sets the maximum index of tiles to be inserted
-     *
-     * @param tilecount
-     */
-
-    public void resetBitmapTiles(int tilecount) {
-        mTileArray = new Bitmap[tilecount];
-    }
-
     /**
      *
      */
@@ -1219,4 +1071,3 @@ public class SnakeView extends TileView {
     }
 
 }
-
